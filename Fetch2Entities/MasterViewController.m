@@ -152,7 +152,14 @@
     cell.detailTextLabel.text = [formatter stringFromDate:currentFlight.timeStamp];
     
     // colour the cell background by testing the class
+    UIColor *green = [UIColor colorWithRed:0.8 green:1.0 blue:0.8 alpha:1];
+    UIColor *blue = [UIColor colorWithRed:0.8 green:0.8 blue:1.0 alpha:1];
     
+    if ([currentFlight isKindOfClass:[Inbound class]]) {
+        cell.backgroundColor = green;
+    } else {
+        cell.backgroundColor = blue;
+    }
 }
 
 #pragma mark - Fetched results controller
