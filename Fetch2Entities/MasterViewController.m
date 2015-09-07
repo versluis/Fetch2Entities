@@ -25,17 +25,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    
+    // left button
+    UIBarButtonItem *inboundButton = [[UIBarButtonItem alloc]initWithTitle:@"In" style:UIBarButtonItemStyleDone target:self action:@selector(insertInbound)];
+    self.navigationItem.leftBarButtonItem = inboundButton;
+    
+    // right button
+    UIBarButtonItem *outboundButton = [[UIBarButtonItem alloc]initWithTitle:@"Out" style:UIBarButtonItemStyleDone target:self action:@selector(insertOutbound)];
+    self.navigationItem.rightBarButtonItem = outboundButton;
+    
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)insertInbound {
+    
+    // create an Inbound object
+    Inbound *newFlight = [NSEntityDescription insertNewObjectForEntityForName:@"Inbound" inManagedObjectContext:self.managedObjectContext];
+    newFlight.timeStamp = [NSDate date];
+    newFlight.flightNumber = @"Inbound Flight";
+    
+    // save the context (using AppDelegate method)
+    AppDelegate *myAppDelegate = [UIApplication sharedApplication].delegate;
+    [myAppDelegate saveContext];
+}
+
+- (void)insertOutbound {
+    
+    // create an Outbound object
+    Outbound *newFlight = [NSEntityDescription insertNewObjectForEntityForName:@"Outbound" inManagedObjectContext:self.managedObjectContext];
+    newFlight.timeStamp = [NSDate date];
+    newFlight.flightNumber = @"Outbound Flight";
+    
+    // save the context (using AppDelegate method)
+    AppDelegate *myAppDelegate = [UIApplication sharedApplication].delegate;
+    [myAppDelegate saveContext];
 }
 
 - (void)insertNewObject:(id)sender {
@@ -108,8 +136,23 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    
+    // grab the current object
+    Event *currentFlight = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // show the title
+    cell.textLabel.text = currentFlight.flightNumber;
+    
+    // format the date
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateStyle = NSDateFormatterMediumStyle;
+    formatter.timeStyle = NSDateFormatterMediumStyle;
+    
+    // show the flight time
+    cell.detailTextLabel.text = [formatter stringFromDate:currentFlight.timeStamp];
+    
+    // colour the cell background by testing the class
+    
 }
 
 #pragma mark - Fetched results controller

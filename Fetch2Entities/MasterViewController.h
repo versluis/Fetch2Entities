@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "Event.h"
+#import "Inbound.h"
+#import "Outbound.h"
+#import "AppDelegate.h"
 
 @class DetailViewController;
 

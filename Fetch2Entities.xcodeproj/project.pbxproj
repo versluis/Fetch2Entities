@@ -16,6 +16,9 @@
 		D29DBCDA1B9DE5D400FB3F30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D29DBCD91B9DE5D400FB3F30 /* Images.xcassets */; };
 		D29DBCDD1B9DE5D400FB3F30 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D29DBCDB1B9DE5D400FB3F30 /* LaunchScreen.xib */; };
 		D29DBCE91B9DE5D400FB3F30 /* Fetch2EntitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D29DBCE81B9DE5D400FB3F30 /* Fetch2EntitiesTests.m */; };
+		D29DBD011B9DF73900FB3F30 /* Outbound.m in Sources */ = {isa = PBXBuildFile; fileRef = D29DBCFC1B9DF73900FB3F30 /* Outbound.m */; };
+		D29DBD021B9DF73900FB3F30 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = D29DBCFE1B9DF73900FB3F30 /* Event.m */; };
+		D29DBD031B9DF73900FB3F30 /* Inbound.m in Sources */ = {isa = PBXBuildFile; fileRef = D29DBD001B9DF73900FB3F30 /* Inbound.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,12 @@
 		D29DBCE21B9DE5D400FB3F30 /* Fetch2EntitiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Fetch2EntitiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29DBCE71B9DE5D400FB3F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D29DBCE81B9DE5D400FB3F30 /* Fetch2EntitiesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fetch2EntitiesTests.m; sourceTree = "<group>"; };
+		D29DBCFB1B9DF73900FB3F30 /* Outbound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Outbound.h; sourceTree = "<group>"; };
+		D29DBCFC1B9DF73900FB3F30 /* Outbound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Outbound.m; sourceTree = "<group>"; };
+		D29DBCFD1B9DF73900FB3F30 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		D29DBCFE1B9DF73900FB3F30 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		D29DBCFF1B9DF73900FB3F30 /* Inbound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inbound.h; sourceTree = "<group>"; };
+		D29DBD001B9DF73900FB3F30 /* Inbound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inbound.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +105,12 @@
 				D29DBCD91B9DE5D400FB3F30 /* Images.xcassets */,
 				D29DBCDB1B9DE5D400FB3F30 /* LaunchScreen.xib */,
 				D29DBCCD1B9DE5D400FB3F30 /* Fetch2Entities.xcdatamodeld */,
+				D29DBCFB1B9DF73900FB3F30 /* Outbound.h */,
+				D29DBCFC1B9DF73900FB3F30 /* Outbound.m */,
+				D29DBCFD1B9DF73900FB3F30 /* Event.h */,
+				D29DBCFE1B9DF73900FB3F30 /* Event.m */,
+				D29DBCFF1B9DF73900FB3F30 /* Inbound.h */,
+				D29DBD001B9DF73900FB3F30 /* Inbound.m */,
 				D29DBCC61B9DE5D400FB3F30 /* Supporting Files */,
 			);
 			path = Fetch2Entities;
@@ -176,6 +191,7 @@
 				TargetAttributes = {
 					D29DBCC21B9DE5D300FB3F30 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = F34HMY85N9;
 					};
 					D29DBCE11B9DE5D400FB3F30 = {
 						CreatedOnToolsVersion = 6.4;
@@ -228,10 +244,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D29DBCD51B9DE5D400FB3F30 /* DetailViewController.m in Sources */,
+				D29DBD011B9DF73900FB3F30 /* Outbound.m in Sources */,
 				D29DBCD21B9DE5D400FB3F30 /* MasterViewController.m in Sources */,
+				D29DBD031B9DF73900FB3F30 /* Inbound.m in Sources */,
 				D29DBCCF1B9DE5D400FB3F30 /* Fetch2Entities.xcdatamodeld in Sources */,
 				D29DBCCC1B9DE5D400FB3F30 /* AppDelegate.m in Sources */,
 				D29DBCC91B9DE5D400FB3F30 /* main.m in Sources */,
+				D29DBD021B9DF73900FB3F30 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Fetch2Entities/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,6 +389,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Fetch2Entities/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
